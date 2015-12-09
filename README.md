@@ -9,6 +9,7 @@ A Clojure library designed to pace at certain TPS.
 ```
 Define the recipient channel
 ```clojure
+(require '[clojure.core.async :refer [chan go-loop]])
 (def c (chan))
 ```
 What the recipient channel should do when it receives data

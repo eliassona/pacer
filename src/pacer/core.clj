@@ -1,13 +1,11 @@
 (ns pacer.core
   (:require 
-    [clojure.core.async :refer [chan go >! <! >!! <!! go-loop alts! timeout onto-chan pipeline close! sliding-buffer]])
-  (:import [java.util.concurrent TimeUnit]))
+    [clojure.core.async :refer [chan go >! <! >!! <!! go-loop alts! timeout onto-chan pipeline close! sliding-buffer]]))
 
 (defn current-time [] (java.lang.System/nanoTime))
 
 
 
-(defn ns->ms [ns] (max 1 (int (/ ns 1E6))))
 (defn ns->ms [ns] (max 1 (int (/ ns 1E6))))
 (defn tps->ns [tps] (if (= tps 0) 0 (int (* 1E9 (double (/ 1 tps))))))
 (defn ns->tps [ns] (long (/ 1 (/ ns 1E9))))
