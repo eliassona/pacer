@@ -1,10 +1,25 @@
 # pacer
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to pace at certain TPS.
 
 ## Usage
 
-FIXME
+```clojure
+(use 'pacer.core)
+```
+Define the recipient channel
+```clojure
+(def c (chan))
+```
+What the recipient channel should do when it receives data
+```clojure
+(go-loop [] (println (<! c)) (recur))
+```
+
+Pace 10 times a 100 tps into channel c
+```clojure
+(pacer 100 10 (fn [v] v) c)
+```
 
 ## License
 
