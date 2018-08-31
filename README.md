@@ -14,7 +14,7 @@ Define the recipient channel
 ```
 What the recipient channel should do when it receives data
 ```clojure
-=> (let [st (System/currentTimeMillis)] (go-loop [] (println {:timestamp (- (System/currentTimeMillis) st), :value(<! c)}) (recur)))
+=> (go-loop [] (println {:timestamp (System/currentTimeMillis), :value(<! c)}) (recur))
 #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcb0aae0 "clojure.core.async.impl.channels.ManyToManyChannel@cb0aae0"]
 
 ```
